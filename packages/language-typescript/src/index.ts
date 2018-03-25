@@ -23,7 +23,7 @@ export const DEFAULT_INTERFACE_DECLARATION: InterfaceDeclarationGenerator = fiel
 ${filterAndJoinArray(fields)}
 }`;
 
-export const DEFAULT_INTERFACE_BUILDER: InterfaceAndTypeBuilder = (name, body) => `interface ${name} ${body}`;
+export const DEFAULT_INTERFACE_BUILDER: InterfaceAndTypeBuilder = (name, body) => `export interface ${name} ${body}`;
 export const DEFAULT_INTERFACE_NAMER: WrapType = name => `I${pascalize(name)}`;
 export const DEFAULT_TYPE_BUILDER: InterfaceAndTypeBuilder = (name, body) => `type ${name} = ${body}`;
 export const DEFAULT_TYPE_JOINER: TypeJoiner = types => filterAndJoinArray(types, ' & ');
@@ -67,7 +67,7 @@ export const DEFAULT_ENUM_FORMATTER: EnumFormatter = (values, documentationGener
 }`;
 
 export const DEFAULT_ENUM_TYPE_BUILDER: EnumTypeBuilder = (name, values) =>
-`enum ${name} ${values}`;
+`export enum ${name} ${values}`;
 
 export const DEFAULT_ENUM_NAME_GENERATOR: WrapType = name => `${pascalize(name)}`;
 export const DEFAULT_INPUT_NAME_GENERATOR: WrapType = name => `${pascalize(name)}Input`;
@@ -77,7 +77,7 @@ export const ADD_SEMICOLON: WrapType = str => `${str};`;
 export const DEFAULT_NAMESPACE_GENERATOR: NamespaceGenerator = (namespaceName, interfaces) => `// tslint:disable
 // graphql typescript definitions
 
-declare namespace ${namespaceName} {
+export namespace ${namespaceName} {
 ${interfaces}
 }
 
